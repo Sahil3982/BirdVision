@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ProductCard = (product) => {
   return (
-    <Link to={product.title}>
+    
       <div className="p-2 m-3 bg-white rounded-lg shadow-md">
         <img
           src={product.img}
@@ -16,7 +15,6 @@ const ProductCard = (product) => {
           <p className="text-blue-600">Price: ${product.price}</p>
         </div>
       </div>
-    </Link>
   );
 };
 
