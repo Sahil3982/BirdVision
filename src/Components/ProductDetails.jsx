@@ -14,19 +14,17 @@ const ProductDetails = () => {
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
-  console.log(productdata);
-
   return (
     <>
       <div className="flex flex-wrap justify-center">
-      {productdata.map((data) => (
-        <ProductCard
-          key={data.id}
-          title={data.title}
-          img={data.thumbnail}
-          price={data.price}
-        />
-      ))}
+        {productdata.map((data) => (
+          <ProductCard
+            key={data.id}
+            title={data.title}
+            img={data.thumbnail}
+            price={data.price}
+          />
+        ))}
       </div>
     </>
   );
