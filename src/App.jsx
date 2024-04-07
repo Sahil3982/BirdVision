@@ -1,15 +1,19 @@
 /* eslint-disable no-unused-vars */
 // App.js
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProductDetailsPage from "./Components/ProductDetailsPage";
-import ProductsListingPage from "./Components/ProductsListingPage";
+import ProductDetails from "./Components/ProductDetails";
 import React from "react";
+import Header from "./Components/Header";
+import ProductCardDetails from "./Components/ProductCardDetails";
+import ProductCard from "./Components/ProductCard";
 function App() {
   return (
     <Router>
+    <Header />
+    <ProductDetails />
       <Routes>
-        <Route exact path="/" element={<ProductsListingPage />} />
-        <Route path="/products/:productId" component={<ProductDetailsPage />} />
+        <Route exact path="/home" element={<ProductCard />} />
+        <Route path="/product/:productId" component={< ProductCardDetails />} />
       </Routes>
     </Router>
   );
