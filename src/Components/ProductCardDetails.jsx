@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-const ProductCardDetails = (e) => {
-  const { productId } = useParams();
+
+const ProductCardDetails = () => {
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${productId}`)
+    fetch(`https://dummyjson.com/products/${id}`)
       .then(response => response.json())
       .then(data => setProduct(data))
       .catch(error => console.error('Error fetching product details:', error));
-  }, [productId]);
+  }, [id]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="text-center mt-8">Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>Product Details Page</h1>
-      <img src={product.images[0]} alt={product.title} />
-      <h2>{product.title}</h2>
-      <p>Description: {product.description}</p>
-      <p>Price: {product.price}</p>
-      {product.discountPercentage && <p>Discount Percentage: {product.discountPercentage}</p>}
-      <p>Rating: {product.rating}</p>
-      <p>Brand: {product.brand}</p>
-      <p>Category: {product.category}</p>
+    <div className="max-w-4xl mx-auto mt-8 p-8 bg-white shadow-md rounded-lg">
+      <h1 className="text-3xl font-semibold mb-4">{product.title}</h1>
+      <img src={product.images[0]} alt={product.title} className="mb-4 rounded-lg" />
+      <p className="text-gray-700 mb-2">Description: {product.description}</p>
+      <p className="text-gray-700 mb-2">Price: ${product.price}</p>
+      {product.discountPercentage && <p className="text-gray-700 mb-2">Discount Percentage: {product.discountPercentage}%</p>}
+      <p className="text-gray-700 mb-2">Rating: {product.rating}</p>
+      <p className="text-gray-700 mb-2">Brand: {product.brand}</p>
+      <p className="text-gray-700 mb-2">Category: {product.category}</p>
     </div>
   );
 };

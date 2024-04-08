@@ -11,7 +11,6 @@ import ProductDetails from "./Components/ProductDetails";
 import React from "react";
 import Header from "./Components/Header";
 import ProductCardDetails from "./Components/ProductCardDetails";
-import ProductCard from "./Components/ProductCard";
 
 function App() {
   const title = useParams();
