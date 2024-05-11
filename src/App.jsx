@@ -18,9 +18,9 @@ function App() {
   return (
     <Router>
       <Header />
-      <ProductDetails />
 
       <Routes>
+        <Route exact path="/" element={<ProductDetails />} />
         <Route path="/product/:id" element={<ProductCardDetails />} />
       </Routes>
     </Router>

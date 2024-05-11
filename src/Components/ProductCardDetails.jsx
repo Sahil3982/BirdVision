@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Rating from "./Rating";
 
 const ProductCardDetails = () => {
   const { id } = useParams();
@@ -18,15 +18,19 @@ const ProductCardDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-8 p-8 bg-white shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto mt-8 p-8 bg-bige shadow-lg rounded-lg">
       <h1 className="text-3xl font-semibold mb-4">{product.title}</h1>
-      <img src={product.images[0]} alt={product.title} className="mb-4 rounded-lg" />
+      <div className="flex mb-4">
+        {product.images.slice(1, 3).map((image, index) => (
+          <img key={index} src={image} alt={product.title} className="w-1/3 h-auto rounded-lg mr-4" />
+        ))}
+      </div>
       <p className="text-gray-700 mb-2">Description: {product.description}</p>
       <p className="text-gray-700 mb-2">Price: ${product.price}</p>
       {product.discountPercentage && <p className="text-gray-700 mb-2">Discount Percentage: {product.discountPercentage}%</p>}
-      <p className="text-gray-700 mb-2">Rating: {product.rating}</p>
       <p className="text-gray-700 mb-2">Brand: {product.brand}</p>
       <p className="text-gray-700 mb-2">Category: {product.category}</p>
+      <Rating/>
     </div>
   );
 };
